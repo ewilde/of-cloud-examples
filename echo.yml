@@ -6,5 +6,3 @@ functions:
     lang: go
     handler: ./echo
     image: ewilde/echo:latest
-    environment:
-      combine_output: "false"

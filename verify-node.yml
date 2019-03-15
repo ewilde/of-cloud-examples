@@ -1,0 +1,8 @@
+provider:
+  name: faas
+  gateway: http://127.0.0.1:8080
+functions:
+  verify-node:
+    lang: node
+    handler: ./verify-node
+    image: ewilde/verify-node:latest
