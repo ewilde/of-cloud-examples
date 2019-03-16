@@ -6,3 +6,5 @@ functions:
     lang: node
     handler: ./verify-node
     image: ewilde/verify-node:latest
+    environment:
+      combine_output: "false"

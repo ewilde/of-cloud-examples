@@ -48,6 +48,8 @@ func Handle(req []byte) string {
 		return errorResult(err)
 	}
 
+	log.Println("Verified OK")
+
 	return "valid"
 }
 
