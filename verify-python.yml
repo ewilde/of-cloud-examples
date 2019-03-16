@@ -1,0 +1,12 @@
+provider:
+  name: faas
+  gateway: http://127.0.0.1:8080
+functions:
+  verify-python:
+    lang: python
+    handler: ./verify-python
+    image: ewilde/verify-python:latest
+    environment:
+      combine_output: "false"
+    build_options:
+      - dev

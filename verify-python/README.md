@@ -1,0 +1,1 @@
+Verifies http-signatures using the [pycryptodome](https://www.pycryptodome.org/en/latest/index.html) library.

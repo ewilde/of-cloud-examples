@@ -1,0 +1,2 @@
+requests==2.21.0
+pycryptodome==3.7.3
