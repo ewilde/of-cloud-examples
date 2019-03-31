@@ -1,0 +1,8 @@
+provider:
+  name: openfaas
+  gateway: http://192.168.99.100:31112
+functions:
+  weather-go:
+    lang: go
+    handler: ./weather-go
+    image: ewilde/weather-go:latest
