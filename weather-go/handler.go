@@ -9,7 +9,7 @@ import (
 // Handle a serverless request
 func Handle(content []byte) string {
 
-	req, err := http.NewRequest("GET", "https://wttr.in/" + string(content), nil)
+	req, err := http.NewRequest("GET", "https://wttr.in/"+string(content), nil)
 	if err != nil {
 		return err.Error()
 	}
