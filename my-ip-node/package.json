@@ -8,8 +8,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "cowsay": "^1.4.0"
-  }
+  "license": "ISC"
 }

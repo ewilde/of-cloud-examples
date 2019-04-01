@@ -1,0 +1,8 @@
+provider:
+  name: openfaas
+  gateway: http://192.168.99.100:31112
+functions:
+  my-ip-python27-flask:
+    lang: python27-flask
+    handler: ./my-ip-python27-flask
+    image: ewilde/my-ip-python27-flask:latest

@@ -1,8 +1,8 @@
 provider:
   name: openfaas
-  gateway: http://192.168.99.100:31112
+  gateway: http://127.0.0.1:8080
 functions:
   cert-sign-go:
-    lang: golang-middleware
+    lang: go
     handler: ./cert-sign-go
     image: ewilde/cert-sign-go:latest

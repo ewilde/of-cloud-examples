@@ -1,0 +1,8 @@
+provider:
+  name: openfaas
+  gateway: http://192.168.99.100:31112
+functions:
+  cert-sign-subscriber:
+    lang: go
+    handler: ./cert-sign-subscriber
+    image: ewilde/cert-sign-subscriber:latest
