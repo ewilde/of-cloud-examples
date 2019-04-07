@@ -6,3 +6,5 @@ functions:
     lang: go
     handler: ./cert-sign-subscriber
     image: ewilde/cert-sign-subscriber:latest
+    environment:
+      combine_output: false
