@@ -77,6 +77,28 @@ content-length: 18`
 	}
 }
 
+func TestGetRequestTargetKubernetes(t *testing.T) {
+
+	os.Setenv("Http_Host", "verify-go.openfaas-fn.svc.cluster.local:8080")
+	os.Setenv("Http_Method", "post")
+	target := getRequestTarget()
+	expected := "(request-target): post /function/verify-go"
+	if target != expected {
+		t.Errorf("want %s, got %s", expected, target)
+	}
+}
+
+func TestGetRequestTargetSwarm(t *testing.T) {
+
+	os.Setenv("Http_Host", "verify-go:8080")
+	os.Setenv("Http_Method", "post")
+	target := getRequestTarget()
+	expected := "(request-target): post /function/verify-go"
+	if target != expected {
+		t.Errorf("want %s, got %s", expected, target)
+	}
+}
+
 func getDigest(body string) string {
 	d := sha256.Sum256([]byte(body))
 

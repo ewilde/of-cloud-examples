@@ -7,4 +7,5 @@ functions:
     handler: ./verify-go
     image: ewilde/verify-go:latest
     environment:
+      gateway_host: "gateway.openfaas"
       combine_output: "false"

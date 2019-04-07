@@ -27,7 +27,7 @@ func Handle(req []byte) string {
 
 	log.SetOutput(os.Stderr)
 
-	resp, err := http.Get("http://gateway:8080/certificates/callback")
+	resp, err := http.Get(fmt.Sprintf("http://%s:8080/certificates/callback", gateway()))
 	if err != nil {
 		return errorResult(err)
 	}
@@ -99,7 +99,7 @@ func getRequestTarget() string {
 		path = ""
 	}
 
-	name := strings.Split(header("Host"), ":")[0]
+	name := strings.Split(strings.Split(header("Host"), ":")[0], ".")[0]
 
 	requestTarget := fmt.Sprintf("(request-target): %s /function/%s%s", strings.ToLower(header("Method")), name, path)
 	query := header("Query")
@@ -143,4 +143,13 @@ func header(key string) string {
 	}
 
 	return ""
+}
+
+func gateway() string {
+	host, ok := os.LookupEnv("gateway_host")
+	if !ok {
+		return "gateway"
+	}
+
+	return host
 }
