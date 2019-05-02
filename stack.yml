@@ -8,3 +8,7 @@ functions:
     image: ewilde/echo:latest
     environment:
       combine_output: "false"
+  cert-sign-go:
+    lang: go
+    handler: ./cert-sign-go
+    image: ewilde/cert-sign-go:latest
