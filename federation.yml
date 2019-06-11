@@ -1,0 +1,24 @@
+provider:
+  name: faas
+  gateway: http://127.0.0.1:8080
+functions:
+  certinfo-s3:
+    lang: go
+    handler: ./certinfo-s3
+    image: ewilde/certinfo-s3:latest
+    environment:
+      combine_output: "true"
+      aws_bucket: "kubecon-2019"
+      aws_region: "eu-west-1"
+    secrets:
+      - aws-access-key-id
+      - aws-secret-access-key
+    annotations:
+      com.openfaas.federation.gateway: "faaslambda.openfaas"
+  cert-sign-go:
+    lang: go
+    handler: ./cert-sign-go
+    image: ewilde/cert-sign-go:latest
+    annotations:
+      com.openfaas.federation.gateway: "faasnetes.openfaas"
+
