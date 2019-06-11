@@ -13,4 +13,3 @@ func TestNotHTMLResponse(t *testing.T) {
 		t.Errorf("Result is HTML expected plain text\n%s", result)
 	}
 }
-

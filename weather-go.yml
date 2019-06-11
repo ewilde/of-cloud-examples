@@ -1,6 +1,6 @@
 provider:
   name: openfaas
-  gateway: http://192.168.99.100:31112
+  gateway: http://127.0.0.1:8083
 functions:
   weather-go:
     lang: go

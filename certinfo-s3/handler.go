@@ -17,32 +17,29 @@ import (
 )
 
 func Handle(req []byte) string {
-	log.SetOutput(os.Stderr)
-	uri := string(req)
-	log.Printf("Beginning to query %s", uri)
+	uri := strings.TrimSuffix(string(req), "\n")
 
-	info, err := getCertificate(req)
+	info, err := downloadCertificate(uri)
 	if err != nil {
 		handleError(http.StatusInternalServerError, err)
-	}
-
-	infoString := getResponse(info)
-	fileName, err := saveToS3(infoString, info.certificate.Subject.CommonName)
-
-	if err != nil {
-		log.Printf("error saving query result for %s. %v", uri, err)
 		return ""
 	}
 
-	log.Printf("Success querying %s", uri)
+	infoString := getCertificateDetailsAsString(info)
+	fileName, err := saveToS3(infoString, info.certificate.Subject.CommonName)
+
+	if err != nil {
+		handleError(http.StatusInternalServerError, err)
+		return ""
+	}
 
 	return fileName
 }
 
-func getResponse(info *certificateInfo) string {
-	asJson := os.Getenv("Http_Query")
+func getCertificateDetailsAsString(info *certificateInfo) string {
+	asJSON := os.Getenv("Http_Query")
 
-	if len(asJson) > 0 && asJson == "output=json" {
+	if len(asJSON) > 0 && asJSON == "output=json" {
 		res := struct {
 			Host          string
 			Port          string
@@ -84,13 +81,13 @@ type certificateInfo struct {
 	port        string
 }
 
-func getCertificate(req []byte) (*certificateInfo, error) {
-	request := strings.ToLower(string(req))
-	if !strings.HasPrefix(request, "http") {
-		request = "https://" + request
+func downloadCertificate(certificateURI string) (*certificateInfo, error) {
+	certificateURI = strings.ToLower(certificateURI)
+	if !strings.HasPrefix(certificateURI, "http") {
+		certificateURI = "https://" + certificateURI
 	}
 
-	u, err := url.Parse(request)
+	u, err := url.Parse(certificateURI)
 	if err != nil {
 		return nil, fmt.Errorf("error: %v", err)
 	}

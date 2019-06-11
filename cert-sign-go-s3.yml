@@ -1,0 +1,12 @@
+provider:
+  name: openfaas
+  gateway: http://127.0.0.1:8083
+functions:
+  cert-sign-go-s3:
+    lang: go
+    handler: ./cert-sign-go-s3
+    image: ewilde/cert-sign-go-s3:latest
+    environment:
+      combine_output: "false"
+      aws_bucket: "kubecon-2019"
+      aws_region: "eu-west-1"
