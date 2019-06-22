@@ -6,6 +6,7 @@ import (
 	"time"
 
 	"github.com/dgrijalva/jwt-go"
+	"github.com/openfaas/openfaas-cloud/sdk"
 )
 
 func createToken(email string, rsaKey string) (string, error) {
@@ -23,10 +24,10 @@ func createToken(email string, rsaKey string) (string, error) {
 	return token.SignedString(key)
 }
 
-func loadRSAKeyFromSecret() ([]byte, error) {
-	rsaKey, err := getSecret("faas-lambda-private-key")
+func loadRSAKeyFromSecret() (string, error) {
+	rsaKey, err := sdk.ReadSecret("faas-lambda-private-key")
 	if err != nil {
-		return nil, fmt.Errorf("error loading private key secret. %v", err)
+		return "", fmt.Errorf("error loading private key secret. %v", err)
 	}
 
 	return rsaKey, nil

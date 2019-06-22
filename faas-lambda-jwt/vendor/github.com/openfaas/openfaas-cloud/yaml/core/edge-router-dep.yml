@@ -1,0 +1,42 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: edge-router
+  namespace: openfaas
+spec:
+  replicas: 1
+  template:
+    metadata:
+      annotations:
+        prometheus.io.scrape: "false"
+      labels:
+        app: edge-router
+    spec:
+      containers:
+      - name: edge-router
+        image: openfaas/edge-router:0.6.1
+        imagePullPolicy: Always
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 8080
+          initialDelaySeconds: 2
+          periodSeconds: 10
+          timeoutSeconds: 2
+        env:
+          - name: upstream_url
+            value: "http://gateway.openfaas:8080"
+          - name: port
+            value: "8080"
+          - name: timeout
+            value: "60s"
+# For OAuth 2.0
+          - name: auth_url
+            value: "http://edge-auth.openfaas:8080"
+# For no OAuth 2.0
+# Use the echo function deployed as part of the stack
+          # - name: auth_url
+          #   value: "http://echo.openfaas-fn:8080"
+        ports:
+        - containerPort: 8080
+          protocol: TCP
