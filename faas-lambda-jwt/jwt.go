@@ -14,7 +14,7 @@ func createToken(email string, rsaKey string) (string, error) {
 	claims.Audience = email
 	claims.Subject = "early-access"
 	claims.ExpiresAt = time.Now().AddDate(0, 3, 0).Unix()
-	token := jwt.NewWithClaims(jwt.SigningMethodRS256, jwt.MapClaims{})
+	token := jwt.NewWithClaims(jwt.SigningMethodRS256, claims)
 
 	key, err := loadRSAPrivateKeyFromString(string(rsaKey))
 	if err != nil {
