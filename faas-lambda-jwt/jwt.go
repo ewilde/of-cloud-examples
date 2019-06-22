@@ -25,7 +25,7 @@ func createToken(email string, rsaKey string) (string, error) {
 }
 
 func loadRSAKeyFromSecret() (string, error) {
-	rsaKey, err := sdk.ReadSecret("faas-lambda-private-key")
+	rsaKey, err := sdk.ReadSecret("faas-lambda-private.key")
 	if err != nil {
 		return "", fmt.Errorf("error loading private key secret. %v", err)
 	}
