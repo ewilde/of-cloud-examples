@@ -12,3 +12,7 @@ functions:
     lang: go
     handler: ./cert-sign-go
     image: ewilde/cert-sign-go:latest
+  faas-lambda-jwt:
+    lang: go
+    handler: ./faas-lambda-jwt
+    image: ewilde/faas-lambda-jwt:latest
