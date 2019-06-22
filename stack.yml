@@ -16,3 +16,5 @@ functions:
     lang: go
     handler: ./faas-lambda-jwt
     image: ewilde/faas-lambda-jwt:latest
+    secrets:
+      - faas-lambda-private-key
