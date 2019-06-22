@@ -1,8 +1,9 @@
 package function
 
 import (
-	"github.com/dgrijalva/jwt-go"
 	"time"
+
+	"github.com/dgrijalva/jwt-go"
 )
 
 // Handle a serverless request

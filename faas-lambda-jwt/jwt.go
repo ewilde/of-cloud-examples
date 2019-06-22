@@ -3,8 +3,9 @@ package function
 import (
 	"crypto/rsa"
 	"fmt"
-	"github.com/dgrijalva/jwt-go"
 	"time"
+
+	"github.com/dgrijalva/jwt-go"
 )
 
 func createToken(email string, rsaKey string) (string, error) {
