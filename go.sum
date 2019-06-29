@@ -1,0 +1,14 @@
+github.com/alexellis/hmac v0.0.0-20180624211220-5c52ab81c0de h1:jiPEvtW8VT0KwJxRyjW2VAAvlssjj9SfecsQ3Vgv5tk=
+github.com/alexellis/hmac v0.0.0-20180624211220-5c52ab81c0de/go.mod h1:uAbpy8G7sjNB4qYdY6ymf5OIQ+TLDPApBYiR0Vc3lhk=
+github.com/aws/aws-sdk-go v1.20.12 h1:xV7xfLSkiqd7JOnLlfER+Jz8kI98rAGJvtXssYkCRs4=
+github.com/aws/aws-sdk-go v1.20.12/go.mod h1:KmX6BPdI08NWTb3/sm4ZGu5ShLoqVDhKgpiN924inxo=
+github.com/dgrijalva/jwt-go v3.2.0+incompatible h1:7qlOGliEKZXTDg6OTjfoBKDXWrumCAMpl/TFQ4/5kLM=
+github.com/dgrijalva/jwt-go v3.2.0+incompatible/go.mod h1:E3ru+11k8xSBh+hMPgOLZmtrrCbhqsmaPHjLKYnJCaQ=
+github.com/dustin/go-humanize v1.0.0 h1:VSnTsYCnlFHaM2/igO1h6X3HA71jcobQuxemgkq4zYo=
+github.com/dustin/go-humanize v1.0.0/go.mod h1:HtrtbFcZ19U5GC7JDqmcUSB87Iq5E25KnS6fMYU6eOk=
+github.com/jmespath/go-jmespath v0.0.0-20180206201540-c2b33e8439af h1:pmfjZENx5imkbgOkpRUYLnmbU7UEFbjtDA2hxJ1ichM=
+github.com/jmespath/go-jmespath v0.0.0-20180206201540-c2b33e8439af/go.mod h1:Nht3zPeWKUH0NzdCt2Blrr5ys8VGpn0CEB0cQHVjt7k=
+github.com/openfaas/faas-provider v0.0.0-20190622075108-0ca8ae603fee h1:3oGX5cE3N49jw8drCzEcNL6Eb1HBRhfRbF7v1cD4VdQ=
+github.com/openfaas/faas-provider v0.0.0-20190622075108-0ca8ae603fee/go.mod h1:W4OIp33RUOpR7wW+omJB/7GhIydRmYXvKf/VqUKI4yM=
+github.com/openfaas/openfaas-cloud v0.0.0-20190621094513-cc6b29eefb23 h1:MwKc9TzevrFaJvqtGfgWEc2yVUDLaJ77TkPdW1E+8/E=
+github.com/openfaas/openfaas-cloud v0.0.0-20190621094513-cc6b29eefb23/go.mod h1:rzuJzd08m8hXz8xQ/CtVdiB8UYhDIroaJCJzGthBzME=

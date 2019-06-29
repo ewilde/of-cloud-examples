@@ -8,7 +8,7 @@ functions:
     image: ewilde/certinfo-s3:latest
     environment:
       combine_output: "true"
-      aws_bucket: "kubecon-2019"
+      aws_bucket: "containerdays-2019"
       aws_region: "eu-west-1"
     secrets:
       - aws-access-key-id
